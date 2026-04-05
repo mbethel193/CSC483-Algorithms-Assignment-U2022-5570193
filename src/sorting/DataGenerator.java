@@ -105,22 +105,17 @@ public class DataGenerator {
      * @return newly allocated nearly-sorted array
      */
     public static int[] nearlySortedArray(int size) {
+        int[] arr = sortedArray(size);
 
-        // Begin with a perfectly sorted array
-        int[]  arr       = sortedArray(size);
-        Random rng       = new Random(SEED);
+        int swaps = (int) (size * 0.05); // only 5% disorder
 
-        // Displace ~10 % of elements via random swaps
-        int swapCount = Math.max(1, size / 10);
+        for (int i = 0; i < swaps; i++) {
+            int idx = (int) (Math.random() * (size - 1));
 
-        for (int i = 0; i < swapCount; i++) {
-            int a = rng.nextInt(size);
-            int b = rng.nextInt(size);
-
-            // Swap arr[a] and arr[b]
-            int tmp = arr[a];
-            arr[a]  = arr[b];
-            arr[b]  = tmp;
+            // swap adjacent elements (small disturbance)
+            int temp = arr[idx];
+            arr[idx] = arr[idx + 1];
+            arr[idx + 1] = temp;
         }
 
         return arr;

@@ -22,8 +22,8 @@ import java.util.Arrays;
  *
  * <h2>How to run</h2>
  * <pre>
- *   javac -d out src/main/java/com/csc483/assignment/sorting/*.java
- *   java  -cp out com.csc483.assignment.sorting.SortBenchmark
+ *   javac -d out src/sorting/*.java
+ *   java  -cp out sorting.SortBenchmark
  * </pre>
  *
  * @author  Bethel Messiah
